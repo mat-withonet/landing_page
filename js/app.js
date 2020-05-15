@@ -41,6 +41,7 @@ const sections = document.querySelectorAll('section');
 const navBuilder = () => {
 
     let navUI = '';
+
     // looping over all sections
     sections.forEach(section => {
 
