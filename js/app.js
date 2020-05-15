@@ -17,7 +17,10 @@
  * Define Global Variables
  * 
 */
-
+// navigation global var
+const navigation = document.getElementById('navbar__list');
+// sections global var
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -35,6 +38,25 @@
 
 // build the nav
 
+const navBuilder = () => {
+
+    let navUI = '';
+    // looping over all sections
+    sections.forEach(section => {
+
+        const sectionID = section.id;
+        const sectionDataNav = section.dataset.nav;
+
+        navUI += `<li><a class="menu__link" href="#${sectionID}">${sectionDataNav}</a></li>`;
+
+    });
+    // append all elements to the navigation
+    navigation.innerHTML = navUI;
+
+
+};
+
+navBuilder();
 
 // Add class 'active' to section when near top of viewport
 
@@ -45,7 +67,7 @@
 /**
  * End Main Functions
  * Begin Events
- * 
+ *
 */
 
 // Build menu 
