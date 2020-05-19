@@ -61,7 +61,6 @@ function addActive(conditional, section) {
     if (conditional) {
         section.classList.add('your-active-class');
         section.style.cssText = "border-style: solid; border-color: #cc1; border-width: 10px;";
-        
     };
 };
 
@@ -81,9 +80,7 @@ window.addEventListener('scroll', sectionActivation);
 
 // Scroll to anchor ID using scrollTO event
 function scrolling() {
-
     const links = document.querySelectorAll('.navbar__menu a');
-
     links.forEach(function (link) {
         link.addEventListener('click', function () {
             for (i = 0; i < sectionTag; i++) {
