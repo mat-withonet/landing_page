@@ -35,8 +35,7 @@ function navBuilder() {
     sectionTag.forEach(function (section) {
         const sectionID = section.id;
         const sectionDataNav = section.dataset.nav;
-
-        navUI += `<li><a class="menu__link" href="#${sectionID}">${sectionDataNav}</a></li>`;
+        navUI += `<li><a class="menu__link" id="nav_${sectionID}" href="#${sectionID}">${sectionDataNav}</a></li>`;
     });
 
     navigation.innerHTML = navUI;
@@ -50,21 +49,27 @@ function offset(section) {
     return Math.floor(section.getBoundingClientRect().top);
 };
 
+
 // Remove function
 function removeActive(section) {
+    document.getElementById("nav_" + section.id).classList.remove('menuActive');
     section.classList.remove('your-active-class');
     section.style.cssText = "background-color: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%)";
-    
 };
-// Active Function
+
+
+// Activate Function
 function addActive(conditional, section) {
     if (conditional) {
+        document.getElementById("nav_" + section.id).classList.add('menu__active');
+        
         section.classList.add('your-active-class');
         section.style.cssText = "border-style: solid; border-color: #cc1; border-width: 10px;";
     };
 };
 
-//Main active function
+
+//Bringing it all together. 
 function sectionActivation() {
     sectionTag.forEach(function (section) {
         const elementOffset = offset(section);
@@ -76,21 +81,24 @@ function sectionActivation() {
     });
 };
 
+
 window.addEventListener('scroll', sectionActivation);
 
+
 // Scroll to anchor ID using scrollTO event
-function scrolling() {
-    const links = document.querySelectorAll('.navbar__menu a');
-    links.forEach(function (link) {
-        link.addEventListener('click', function () {
-            for (i = 0; i < sectionTag; i++) {
-                sectionTag[i].addEventListener("click", sectionScroll(link));
+// function scrolling() {
+//     const links = document.querySelectorAll('.navbar__menu a');
+//     links.forEach(function (link) {
+//         link.addEventListener('click', function () {
+//             for (i = 0; i < sectionTag; i++) {
+//                 sectionTag[i].addEventListener("click", sectionScroll(link));
+//                 activeSection = sectionTag[i];
+//                 console.log(activeSection);
+//             }
+//         });
+//     });
 
-            }
-        });
-    });
-
-};
+// };
 
 
 /**
@@ -104,3 +112,4 @@ navBuilder();
 // Scroll to section on link click
 scrolling();
 // Set sections as active
+

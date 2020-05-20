@@ -91,6 +91,12 @@ section {
     transition: ease 0.3s all;
 }
 
+.menu__active {
+    background: #ff0000;
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
 /* Header Styles */
 
 .page__header {
