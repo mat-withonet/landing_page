@@ -45,6 +45,10 @@ p {
     color: #eee;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 /* ---- Layout Rules ---- */
 
 main {

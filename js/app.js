@@ -28,7 +28,6 @@ const sectionTag = document.querySelectorAll('section');
 */
 
 // build the nav
-
 function navBuilder() {
     let navUI = '';
     // looping over all sections
@@ -42,6 +41,8 @@ function navBuilder() {
 
 };
 
+navBuilder();
+
 // Add class 'active' to section when near top of viewport
 
 // getting the largest value that's less or equal to the number
@@ -52,7 +53,7 @@ function offset(section) {
 
 // Remove function
 function removeActive(section) {
-    document.getElementById("nav_" + section.id).classList.remove('menuActive');
+    document.getElementById("nav_" + section.id).classList.remove('menu__active');
     section.classList.remove('your-active-class');
     section.style.cssText = "background-color: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%)";
 };
@@ -62,7 +63,6 @@ function removeActive(section) {
 function addActive(conditional, section) {
     if (conditional) {
         document.getElementById("nav_" + section.id).classList.add('menu__active');
-        
         section.classList.add('your-active-class');
         section.style.cssText = "border-style: solid; border-color: #cc1; border-width: 10px;";
     };
@@ -81,35 +81,6 @@ function sectionActivation() {
     });
 };
 
-
 window.addEventListener('scroll', sectionActivation);
 
-
-// Scroll to anchor ID using scrollTO event
-// function scrolling() {
-//     const links = document.querySelectorAll('.navbar__menu a');
-//     links.forEach(function (link) {
-//         link.addEventListener('click', function () {
-//             for (i = 0; i < sectionTag; i++) {
-//                 sectionTag[i].addEventListener("click", sectionScroll(link));
-//                 activeSection = sectionTag[i];
-//                 console.log(activeSection);
-//             }
-//         });
-//     });
-
-// };
-
-
-/**
- * End Main Functions
- * Begin Events
- *
-*/
-
-// Build menu 
-navBuilder();
-// Scroll to section on link click
-scrolling();
-// Set sections as active
 
