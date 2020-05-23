@@ -83,22 +83,6 @@ function sectionActivation() {
 window.addEventListener('scroll', sectionActivation);
 
 
-
-// Scroll to anchor ID using scrollTO event
-function scrolling() {
-    const links = document.querySelectorAll('.navbar__menu a');
-    links.forEach(function (link) {
-        link.addEventListener('click', function () {
-            for (i = 0; i < sectionTag; i++) {
-                sectionTag[i].addEventListener("click", sectionScroll(link));
-                activeSection = sectionTag[i];
-                console.log(activeSection);
-            }
-        }); 
-    });
-};
-
-
 /**
  * End Main Functions
  * Begin Events
@@ -107,7 +91,4 @@ function scrolling() {
 
 // Build menu 
 navBuilder();
-// Scroll to section on link click
-scrolling();
-
 

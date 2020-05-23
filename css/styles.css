@@ -61,6 +61,10 @@ section {
     min-height: 80vh;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
